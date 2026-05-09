@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Invitation</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Gochi+Hand&family=Tilt+Neon&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Tilt Neon",sans-serif;
+    background:white;
+}
+
+.font-accent{
+    font-family:"Fredoka",sans-serif;
+}
+
+.font-latin{
+    font-family:"Gochi Hand",cursive;
+}
+
+/* COVER */
+
+.cover{
+    position:relative;
+    overflow:hidden;
+    text-align:center;
+    margin:auto;
+    height:100vh;
+    width:100%;
+    max-width:500px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+
+    background-image:url(assets/bg-bg.jfif);
+    background-size:cover;
+    background-position:center;
+}
+
+.cover-content{
+    position:relative;
+    z-index:99;
+
+    width:100%;
+    height:100%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+}
+
+.profile{
+    width:190px;
+    height:190px;
+    border-radius:50%;
+    overflow:hidden;
+    margin-bottom:20px;
+}
+
+.profile img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.title{
+    font-size:70px;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+.subtitle{
+    margin-bottom:70px;
+}
+
+.guest{
+    margin-bottom:10px;
+}
+
+.guest-name{
+    font-weight:bold;
+    margin-bottom:25px;
+}
+
+.button{
+    display:inline-block;
+    text-decoration:none;
+    background:orange;
+    color:white;
+    padding:14px 28px;
+    border-radius:14px;
+    transition:0.3s;
+}
+
+.button:hover{
+    background:#cc6d00;
+}
+
+/* CONTENT */
+
+.content{
+    display:none;
+
+    overflow:hidden;
+    background:#fff5eb;
+
+    text-align:center;
+    margin:auto;
+    width:100%;
+    max-width:500px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+}
+
+.section{
+    width:100%;
+    padding:60px 24px;
+}
+
+.container{
+    width:100%;
+    max-width:420px;
+    margin:auto;
+}
+
+.heading{
+    font-size:34px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.big-text{
+    font-size:90px;
+    font-weight:bold;
+    color:orange;
+}
+
+.schedule{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:15px;
+    margin:30px 0;
+}
+
+.date{
+    font-size:70px;
+    font-weight:bold;
+}
+
+.schedule-info{
+    text-align:left;
+    font-size:24px;
+    font-weight:bold;
+}
+
+.line{
+    width:3px;
+    height:80px;
+    background:orange;
+}
+
+.countdown{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+    margin-bottom:30px;
+}
+
+.count-box{
+    background:orange;
+    color:white;
+    padding:15px;
+    border-radius:10px;
+}
+
+.count-box h3{
+    font-size:28px;
+}
+
+.count-box p{
+    font-size:14px;
+}
+
+.address-title{
+    font-size:45px;
+    margin-bottom:20px;
+}
+
+.address-text{
+    margin-bottom:20px;
+    line-height:1.7;
+}
+
+/* GALLERY */
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+}
+
+.gallery-item{
+    aspect-ratio:1/1;
+    overflow:hidden;
+}
+
+.gallery-item img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* FOOTER */
+
+.footer{
+    min-height:500px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+
+    text-align:center;
+}
+
+.footer-text{
+    font-size:55px;
+    color:orange;
+    font-weight:bold;
+    line-height:1.4;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:500px){
+
+    .title{
+        font-size:55px;
+    }
+
+    .big-text{
+        font-size:70px;
+    }
+
+    .date{
+        font-size:50px;
+    }
+
+    .schedule-info{
+        font-size:18px;
+    }
+
+    .footer-text{
+        font-size:40px;
+    }
+
+    .countdown-finished{
+    background:red;
+    color:white;
+    padding:15px;
+    border-radius:12px;
+    font-weight:bold;
+    text-align:center;
+    width:100%;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- COVER -->
+<section class="cover">
+
+    <div class="cover-content">
+
+        <div class="profile">
+            <img src="image/WhatsApp Image 2026-05-09 at 13.30.38.jpeg">
+        </div>
+
+        <div class="title font-accent">
+            Olann
+        </div>
+
+        <div class="subtitle">
+            sweet seventeen!
+        </div>
+
+        <div>
+            <div class="guest">
+                Kepada Yth <br>
+                Besti Yang Tercinta
+            </div>
+
+            <div class="guest-name">
+                Nama Tamu
+            </div>
+
+            <a id="btnBuka" href="#isiUndangan" class="button">
+                Open Invitation
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CONTENT -->
+<div id="isiUndangan" class="content">
+
+    <!-- SECTION 1 -->
+    <section class="section">
+
+        <div class="container">
+
+            <p class="heading">
+                WELCOME TO
+            </p>
+
+            <div class="big-text font-accent">
+                17st
+            </div>
+
+            <p class="heading">
+                OLAN SWEET SEVENTEEN
+            </p>
+
+            <div class="schedule">
+
+                <div class="date">
+                    9
+                </div>
+
+                <div class="schedule-info">
+                    <div>SABTU</div>
+                    <div>MEI 2026</div>
+                </div>
+
+                <div class="line"></div>
+
+                <div class="schedule-info">
+                    <div>20.00 WIB</div>
+                    <div>s.d SELESAI</div>
+                </div>
+
+            </div>
+
+            <!-- COUNTDOWN -->
+            <div id="countDown" class="countdown">
+
+                <div class="count-box">
+                    <h3 id="day">00</h3>
+                    <p>Hari</p>
+                </div>
+
+                <div class="count-box">
+                    <h3 id="hour">00</h3>
+                    <p>Jam</p>
+                </div>
+
+                <div class="count-box">
+                    <h3 id="minute">00</h3>
+                    <p>Menit</p>
+                </div>
+
+                <div class="count-box">
+                    <h3 id="second">00</h3>
+                    <p>Detik</p>
+                </div>
+
+            </div>
+
+            <h2 class="address-title font-latin">
+                Alamat
+            </h2>
+
+            <p class="address-text">
+                Di planet bumi
+            </p>
+
+            <a href="https://maps.app.goo.gl/fVCuu8Y3VjzWfejm8"
+               target="_blank"
+               class="button">
+               Buka Google Maps
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- GALLERY -->
+    <section class="section">
+
+        <div class="container">
+
+            <h2 class="address-title font-latin">
+                Our Memories
+            </h2>
+
+            <div class="gallery">
+
+                <div class="gallery-item">
+                    <img src="image/WhatsApp Image 2026-05-09 at 13.30.36 (1).jpeg">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="image/WhatsApp Image 2026-05-09 at 13.30.36.jpeg">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="image/WhatsApp Image 2026-05-09 at 13.30.37 (1).jpeg">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="image/WhatsApp Image 2026-05-09 at 13.30.37.jpeg">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="image/WhatsApp Image 2026-05-09 at 13.30.38 (1).jpeg">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="image/WhatsApp Image 2026-05-09 at 13.30.38 (2).jpeg">
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <section class="section footer">
+
+        <p class="footer-text font-latin">
+            Thank you for<br>
+            Your attention<br>
+            Hope to see you<br>
+            at the event
+        </p>
+
+    </section>
+
+</div>
+
+<!-- AUDIO -->
+<audio src="Nadin Amizah - Beranjak Dewasa (Official Lyric Video) (1).mp3" id="lagu"></audio>
+
+<script>
+
+const btnBuka = document.getElementById('btnBuka');
+const isiUndangan = document.getElementById('isiUndangan');
+const lagu = document.getElementById('lagu');
+
+btnBuka.addEventListener('click', function(){
+
+    isiUndangan.style.display = 'flex';
+    lagu.play();
+
+});
+
+// COUNTDOWN
+var countDownDate = new Date("2026-05-09T14:23:25").getTime();
+
+var x = setInterval(function(){
+
+    var now = new Date().getTime();
+    var distance = countDownDate - now;
+
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("day").innerText = days;
+    document.getElementById("hour").innerText = hours;
+    document.getElementById("minute").innerText = minutes;
+    document.getElementById("second").innerText = seconds;
+
+    if(distance < 0){
+
+    clearInterval(x);
+
+    document.getElementById("countDown").innerHTML = `
+        <div class="countdown-finished">
+            Maaf Acara Sudah Selesai
+        </div>
+    `;
+
+}
+
+}, 1000);
+
+</script>
+
+</body>
+</html>
